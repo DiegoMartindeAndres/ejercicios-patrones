@@ -21,7 +21,7 @@ Diagrama de clases (orientativo) de lo que se quiere construir:
 
 ```mermaid
 classDiagram
-        direction LR
+        
 
         class CanalNotificacion {
             <<interface>>

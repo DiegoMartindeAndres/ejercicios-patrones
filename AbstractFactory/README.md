@@ -30,7 +30,7 @@ Diagrama de clases orientativo (lo que vas a construir):
 
 ```mermaid
 classDiagram
-direction LR
+
 
 class FabricaDomotica {
     <<interface>>

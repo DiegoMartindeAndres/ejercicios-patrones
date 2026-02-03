@@ -27,7 +27,7 @@ El siguiente diagrama resume la estructura que vas a implementar: un **component
 
 ```mermaid
 classDiagram
-direction LR
+
 
 class Notificador {
     <<interface>>
