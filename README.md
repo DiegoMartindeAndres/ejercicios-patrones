@@ -22,3 +22,8 @@ Ante cualquier error o sugerencia, por favor, contáctame en mi correo: [diego.m
 | Lab 04 | [Patrón **Composite**](./Composite/README.md) |
 | Lab 05 | [Patrón **Decorator**](./Decorator/README.md) |
 | Lab 06 | [Patrón **Template Method**](./TemplateMethod/README.md) |
+
+
+## Código ejercicios en Java
+
+[También te puedes descargar el fichero ZIP con los ejercicios vistos en clase.](./code/EjemploPatrones.zip)
