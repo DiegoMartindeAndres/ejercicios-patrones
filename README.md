@@ -16,9 +16,9 @@ Ante cualquier error o sugerencia, por favor, contáctame en mi correo: [diego.m
 
 | Laboratorio | Nombre | 
 |-------------|-----------|
-| Lab 00 | [Patrón **Singleton**](./Singleton/README.md) |
-| Lab 01 | [Patrón **Factory Method**](./FactoryMethod/README.md) |
-| Lab 02 | [Patrón **Abstract Factory**](./AbstractFactory/README.md) |
-
-
-
+| Lab 01 | [Patrón **Singleton**](./Singleton/README.md) |
+| Lab 02 | [Patrón **Factory Method**](./FactoryMethod/README.md) |
+| Lab 03 | [Patrón **Abstract Factory**](./AbstractFactory/README.md) |
+| Lab 04 | [Patrón **Composite**](./Composite/README.md) |
+| Lab 05 | [Patrón **Decorator**](./Decorator/README.md) |
+| Lab 06 | [Patrón **Template Method**](./TemplateMethod/README.md) |

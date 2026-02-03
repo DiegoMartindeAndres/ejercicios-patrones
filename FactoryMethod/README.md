@@ -17,8 +17,53 @@ Tu objetivo es refactorizar el diseño para que:
 - La creación del objeto se delegue en un **método fábrica**.
 - Añadir un nuevo canal (Push, WhatsApp, etc.) sea tan simple como añadir una nueva subclase del creador (principio *abierto/cerrado*).
 
+Diagrama de clases (orientativo) de lo que se quiere construir:
+
+```mermaid
+classDiagram
+        direction LR
+
+        class CanalNotificacion {
+            <<interface>>
+            +enviar(mensaje: String) void
+        }
+
+        class Sms {
+            +enviar(mensaje: String) void
+        }
+        class Email {
+            +enviar(mensaje: String) void
+        }
+
+        CanalNotificacion <|.. Sms
+        CanalNotificacion <|.. Email
+
+        class CentroAlertas {
+            <<abstract>>
+            +crearCanal() CanalNotificacion
+            +emitirNotificacion(mensaje: String) void
+        }
+
+        class CentroAlertasCriticas {
+            +crearCanal() CanalNotificacion
+        }
+        class CentroInformesSemanales {
+            +crearCanal() CanalNotificacion
+        }
+
+        CentroAlertas <|-- CentroAlertasCriticas
+        CentroAlertas <|-- CentroInformesSemanales
+        CentroAlertas ..> CanalNotificacion : usa
+
+        class Main {
+            +main(args: String[]) void
+        }
+
+        Main ..> CentroAlertas
+```
+
 Este ejercicio está inspirado en:
-- Las transparencias: `./Transpas/2-FactoryMethod.md`
+- Las transparencias: `2-FactoryMethod.pdf`
 - El ejemplo de referencia (misma estructura, distinta temática): `./code/es/uva/poo/factorymethod/`
 
 ---

@@ -17,6 +17,40 @@ Tu objetivo es implementar un **Gestor de Configuración** usando el patrón **S
 
 ### ¿Cuál es el “código cliente” que debe funcionar? 👇
 
+Diagrama de clases orientativo (estructura objetivo del ejercicio):
+
+```mermaid
+classDiagram
+direction TB
+
+class GestorConfiguracion {
+    -GestorConfiguracion()  
+    -GestorConfiguracion instancia$
+    -String idioma
+    -String rutaDatos
+    -String nivelLog
+    +GestorConfiguracion obtenerInstancia()$
+    +String getIdioma()
+    +void setIdioma(String idioma)
+    +String getRutaDatos()
+    +void setRutaDatos(String rutaDatos)
+    +String getNivelLog()
+    +void setNivelLog(String nivelLog)
+    +void cargarDesdeArgumentos(String[] args)
+}
+
+class ModuloInformes {
+    +void generarInforme()
+}
+
+class PruebaGestorConfiguracion {
+    +static void main(String[] args)
+}
+
+PruebaGestorConfiguracion ..> GestorConfiguracion : obtiene/usa
+ModuloInformes ..> GestorConfiguracion : lee config global
+```
+
 En este ejercicio, el **código cliente** (el que “consume” tu Singleton) será una clase de prueba con este punto de entrada:
 
 ```java
@@ -70,7 +104,7 @@ Tu trabajo consiste en implementar `GestorConfiguracion` (y el resto de clases d
 - Si se cambia un valor desde `c1`, al leerlo desde `c2` se ve el **mismo cambio**.
 
 Te basarás en:
-- Las transparencias: `./Transpas/1-Singleton.md`
+- Las transparencias: `1-Singleton.pdf`
 - El ejemplo base: `./code/es/uva/poo/singleton/Singleton.java` y `./code/es/uva/poo/singleton/PruebaSingleton.java`
 
 ---

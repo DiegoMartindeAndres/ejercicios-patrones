@@ -26,8 +26,89 @@ Tu objetivo es diseñar el sistema para que:
 - La creación de objetos se centralice en una **fábrica abstracta**.
 - Cambiar de protocolo sea tan simple como seleccionar **otra fábrica concreta**.
 
+Diagrama de clases orientativo (lo que vas a construir):
+
+```mermaid
+classDiagram
+direction LR
+
+class FabricaDomotica {
+    <<interface>>
+    +crearSensorMovimiento() SensorMovimiento
+    +crearEnchufeInteligente() EnchufeInteligente
+    +crearCentralDomotica() CentralDomotica
+}
+
+class SensorMovimiento {
+    <<interface>>
+    +detectarMovimiento() String
+}
+
+class EnchufeInteligente {
+    <<interface>>
+    +encender() void
+    +apagar() void
+}
+
+class CentralDomotica {
+    <<interface>>
+    +emparejar() void
+    +registrarDispositivos(sensor: SensorMovimiento, enchufe: EnchufeInteligente) void
+}
+
+class FabricaDomoticaZigbee
+class FabricaDomoticaZWave
+class FabricaDomoticaWifi
+
+FabricaDomotica <|.. FabricaDomoticaZigbee
+FabricaDomotica <|.. FabricaDomoticaZWave
+FabricaDomotica <|.. FabricaDomoticaWifi
+
+class SensorMovimientoZigbee
+class EnchufeInteligenteZigbee
+class CentralDomoticaZigbee
+
+class SensorMovimientoZWave
+class EnchufeInteligenteZWave
+class CentralDomoticaZWave
+
+class SensorMovimientoWifi
+class EnchufeInteligenteWifi
+class CentralDomoticaWifi
+
+SensorMovimiento <|.. SensorMovimientoZigbee
+EnchufeInteligente <|.. EnchufeInteligenteZigbee
+CentralDomotica <|.. CentralDomoticaZigbee
+
+SensorMovimiento <|.. SensorMovimientoZWave
+EnchufeInteligente <|.. EnchufeInteligenteZWave
+CentralDomotica <|.. CentralDomoticaZWave
+
+SensorMovimiento <|.. SensorMovimientoWifi
+EnchufeInteligente <|.. EnchufeInteligenteWifi
+CentralDomotica <|.. CentralDomoticaWifi
+
+class InstaladorKitDomotico {
+    -sensor: SensorMovimiento
+    -enchufe: EnchufeInteligente
+    -central: CentralDomotica
+    +InstaladorKitDomotico(fabrica: FabricaDomotica)
+    +instalarYProbar() void
+}
+
+InstaladorKitDomotico --> FabricaDomotica : usa
+InstaladorKitDomotico --> SensorMovimiento
+InstaladorKitDomotico --> EnchufeInteligente
+InstaladorKitDomotico --> CentralDomotica
+CentralDomotica ..> SensorMovimiento : registra
+CentralDomotica ..> EnchufeInteligente : registra
+
+class Demo
+Demo --> InstaladorKitDomotico : crea
+```
+
 Este ejercicio está inspirado en:
-- Las transparencias: `./Transpas/3-AbstractFactory.md`
+- Las transparencias: `3-AbstractFactory.pdf`
 - El ejemplo base (misma estructura, distinta temática): `./code/es/uva/poo/abstractfactory/`
 
 ---
