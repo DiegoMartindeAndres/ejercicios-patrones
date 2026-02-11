@@ -24,3 +24,12 @@ Ante cualquier error o sugerencia, por favor, contáctame en mi correo: [diego.m
 | Lab 06 | [Patrón **Template Method**](./TemplateMethod/README.md) |
 | Lab 07 | [Patrón **Observer**](./Observer/README.md) |
 | Lab 08 | [Patrón **Strategy**](./Strategy/README.md) |
+
+
+## Acceso a las transparencias del curso
+
+[Puedes acceder a las transparencias del curso aquí.](./transpas/)
+
+## Código ejercicios en Java
+
+[También te puedes descargar el fichero ZIP con los ejercicios vistos en clase.](./code/EjemploPatrones.zip)
